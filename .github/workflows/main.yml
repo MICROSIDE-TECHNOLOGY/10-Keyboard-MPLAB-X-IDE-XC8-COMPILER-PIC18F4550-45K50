@@ -1,0 +1,31 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+    #PIC18F4550
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F4550
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/16a11bc79903a6911a1d3c1f08461f6f
+          gist_title: 10-TecladoMatricial-4550.c
+          gist_description: Prácticas MPLABX
+          github_file: Proyecto/PIC18F4550/10_Keypad.X/main.c
+          file_encoding: ISO-8859-1
+    #PIC18F45K50
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: vhperaltaj/gist-sync-action@v1.0.0
+        id: PIC18F45K50
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/microside-mx/fe14cdcd70719b986d411d26316bf013
+          gist_title: 10-TecladoMatricial-MPLAB.c
+          gist_description: Prácticas MPLABX
+          github_file: Proyecto/PIC18F45K50/10_KEYPAD.X/main.c
+          file_encoding: ISO-8859-1
